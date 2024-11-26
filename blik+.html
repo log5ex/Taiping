@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiny Text</title>
+    <style>
+        body {
+            background: #1a1a2e;
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .shiny-text {
+            font-size: 3rem;
+            background: linear-gradient(90deg, #ffd700, #ff6347, #00ffff, #ffd700);
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: shine 3s linear infinite;
+        }
+
+        @keyframes shine {
+            from {
+                background-position: -200%;
+            }
+            to {
+                background-position: 200%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="shiny-text">Золотой стандарт</div>
+</body>
+</html>

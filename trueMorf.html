@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Morphing</title>
+    <style>
+        body {
+            background: #1a1a2e;
+            color: #ffffff;
+            font-family: 'Roboto Mono', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .morphing-text {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="morphing-text" id="morphingText">Привет, мир!</div>
+
+    <!-- Подключение Anime.js через CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <script>
+        const texts = ["Привет, мир!", "Мир анимаций", "Добро пожаловать!", "Будущее здесь"];
+        let index = 0;
+        const morphingText = document.getElementById('morphingText');
+
+        setInterval(() => {
+            anime({
+                targets: morphingText,
+                opacity: [1, 0],
+                duration: 500,
+                easing: 'easeInOutQuad',
+                complete: () => {
+                    index = (index + 1) % texts.length;
+                    morphingText.textContent = texts[index];
+                    anime({
+                        targets: morphingText,
+                        opacity: [0, 1],
+                        duration: 500,
+                        easing: 'easeInOutQuad',
+                    });
+                },
+            });
+        }, 3000);
+    </script>
+</body>
+</html>
